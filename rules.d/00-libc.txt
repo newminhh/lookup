@@ -19,6 +19,7 @@ sym	*	__clock_gettime64	libnewminhh_compat.so	compat___clock_gettime64	COMPAT	i:
 sym	*	__clock_nanosleep64	libnewminhh_compat.so	compat___clock_nanosleep64	COMPAT	i:iipp	-	0
 sym	*	__cxa_atexit	libnewminhh_compat.so	compat___cxa_atexit	COMPAT	i:uuu	-	0
 sym	*	__cxa_finalize	libnewminhh_compat.so	compat___cxa_finalize	COMPAT	v:u	-	0
+sym	*	__environ	libnewminhh_compat.so	compat_environ	COMPAT	D4	DATA,STATIC_ONLY	4
 sym	*	__errno_location	libnewminhh_compat.so	compat___errno_location	COMPAT	p:	-	0
 sym	*	__fstat64_time64	libnewminhh_compat.so	compat___fstat64_time64	COMPAT	i:ip	-	0
 sym	*	__fstatat64_time64	libnewminhh_compat.so	compat___fstatat64_time64	COMPAT	i:ippi	-	0
@@ -40,6 +41,7 @@ sym	*	__stack_chk_fail	libnewminhh_compat.so	compat___stack_chk_fail	COMPAT	v:	-
 sym	*	__stat64_time64	libnewminhh_compat.so	compat___stat64_time64	COMPAT	i:pp	-	0
 sym	*	__xstat	libnewminhh_compat.so	compat___xstat	COMPAT	i:ipp	-	0
 sym	*	__xstat64	libnewminhh_compat.so	compat___xstat64	COMPAT	i:ipp	-	0
+sym	*	_environ	libnewminhh_compat.so	compat_environ	COMPAT	D4	DATA,STATIC_ONLY	4
 sym	*	_exit	libnewminhh_compat.so	compat__exit	COMPAT	v:i	-	0
 sym	*	abort	libnewminhh_compat.so	compat_abort	COMPAT	v:	-	0
 sym	*	access	libnewminhh_compat.so	compat_access	COMPAT	i:pi	-	0
