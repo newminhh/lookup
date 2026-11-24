@@ -10,6 +10,7 @@ lib	libdl.so.2	-	libnewminhh_compat.so	-	COMPAT	-	-	-
 lib	libdl.so	-	libnewminhh_compat.so	-	COMPAT	-	-	-
 lib	librt.so.1	-	libnewminhh_compat.so	-	COMPAT	-	-	-
 lib	librt.so	-	libnewminhh_compat.so	-	COMPAT	-	-	-
+lib	libgcc_s.so.1	-	libnewminhh_compat.so	-	COMPAT	-	-	-
 lib	ld-linux.so.2	-	libnewminhh_compat.so	-	COMPAT	-	-	-
 sym	*	_ITM_deregisterTMCloneTable	libnewminhh_compat.so	_ITM_deregisterTMCloneTable	COMPAT	v:	WEAK,STATIC_ONLY	0
 sym	*	_ITM_registerTMCloneTable	libnewminhh_compat.so	_ITM_registerTMCloneTable	COMPAT	v:	WEAK,STATIC_ONLY	0
