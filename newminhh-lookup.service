@@ -1,0 +1,8 @@
+[Unit]
+Description=Regenerate newminhh lookup table cache
+Documentation=https://github.com/newminhh/newminhh
+ConditionFileIsExecutable=/usr/bin/newminhh-lookup-gen
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c '/usr/bin/newminhh-lookup-gen --system --quiet || echo "newminhh: lookup regen failed; using compiled-in base table" >&2'

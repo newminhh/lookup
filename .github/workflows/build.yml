@@ -1,0 +1,59 @@
+name: Build & Verify lookup (Static Rules & Parser)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-rules-and-build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        cc: [clang, gcc]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies (${{ matrix.cc }})
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ${{ matrix.cc }} make python3
+
+      - name: Validate rules catalog format and headers
+        run: |
+          for f in src/lookup/rules.d/*.txt; do
+            echo "Checking $f..."
+            first_line=$(head -n 1 "$f")
+            if [ "$first_line" != "#!newminhh-lookup v1" ]; then
+              echo "ERROR: Invalid header in $f: $first_line" >&2
+              exit 1
+            fi
+          done
+
+      - name: Run golden parity suite
+        run: |
+          bash tests/lookup/registry_parity.sh
+
+      - name: Build C23 parser with ASan and UBSan (${{ matrix.cc }})
+        run: |
+          if [ -f src/lookup/Makefile ]; then
+            make -C src/lookup clean all CC="${{ matrix.cc }}" CFLAGS="-O2 -g -fsanitize=address,undefined -fno-omit-frame-pointer"
+          elif [ -f src/lookup/nm_lookup.c ]; then
+            ${{ matrix.cc }} -std=gnu23 -Wall -Wextra -Werror -pedantic \
+              -fsanitize=address,undefined -fno-omit-frame-pointer \
+              -Isrc/common -c src/lookup/nm_lookup.c -o /tmp/nm_lookup_${{ matrix.cc }}.o
+          fi
+
+      - name: Validate systemd unit files syntax
+        run: |
+          test -s src/lookup/newminhh-lookup.path
+          test -s src/lookup/newminhh-lookup.service
+          grep -q "PathModified=" src/lookup/newminhh-lookup.path
+          grep -q "ExecStart=" src/lookup/newminhh-lookup.service

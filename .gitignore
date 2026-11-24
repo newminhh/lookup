@@ -1,0 +1,5 @@
+*.o
+*.a
+newminhh-lookup-gen
+lookup_base.txt
+*.plist

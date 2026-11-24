@@ -1,0 +1,13 @@
+[Unit]
+Description=Watch for newminhh rules and x32 library changes
+Documentation=https://github.com/newminhh/newminhh
+
+[Path]
+PathModified=/usr/share/newminhh/rules.d
+PathModified=/etc/newminhh/rules.d
+PathModified=/usr/libx32
+PathModified=/usr/lib/x86_64-linux-gnux32
+Unit=newminhh-lookup.service
+
+[Install]
+WantedBy=multi-user.target

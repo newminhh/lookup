@@ -1,0 +1,19 @@
+#!newminhh-lookup v1
+# FORBIDDEN_ABI guards for unwrapped ABI-divergent libc symbols
+sym	libc.so.6	ftruncate64	-	-	FORBIDDEN_ABI	-	REASON=scalar-size:off64_t	0
+sym	libc.so.6	getcontext	-	-	FORBIDDEN_ABI	-	REASON=context-state:ucontext_t	0
+sym	libc.so.6	getitimer	-	-	FORBIDDEN_ABI	-	REASON=struct-layout:struct_itimerval	0
+sym	libc.so.6	getrusage	-	-	FORBIDDEN_ABI	-	REASON=struct-layout:struct_rusage	0
+sym	libc.so.6	inet_ntoa	-	-	FORBIDDEN_ABI	-	REASON=struct-return:in_addr	0
+sym	libc.so.6	makecontext	-	-	FORBIDDEN_ABI	-	REASON=context-state:ucontext_t	0
+sym	libc.so.6	pread64	-	-	FORBIDDEN_ABI	-	REASON=scalar-size:off64_t	0
+sym	libc.so.6	pwrite64	-	-	FORBIDDEN_ABI	-	REASON=scalar-size:off64_t	0
+sym	libc.so.6	readdir64	-	-	FORBIDDEN_ABI	-	REASON=struct-layout:struct_dirent64	0
+sym	libc.so.6	setcontext	-	-	FORBIDDEN_ABI	-	REASON=context-state:ucontext_t	0
+sym	libc.so.6	setitimer	-	-	FORBIDDEN_ABI	-	REASON=struct-layout:struct_itimerval	0
+sym	libc.so.6	sigsetjmp	-	-	FORBIDDEN_ABI	-	REASON=context-state:sigjmp_buf	0
+sym	libc.so.6	statx	-	-	FORBIDDEN_ABI	-	REASON=struct-layout:struct_statx	0
+sym	libc.so.6	swapcontext	-	-	FORBIDDEN_ABI	-	REASON=context-state:ucontext_t	0
+sym	libc.so.6	vfscanf	-	-	FORBIDDEN_ABI	-	REASON=va_list	0
+sym	libc.so.6	vscanf	-	-	FORBIDDEN_ABI	-	REASON=va_list	0
+sym	libc.so.6	vsscanf	-	-	FORBIDDEN_ABI	-	REASON=va_list	0
