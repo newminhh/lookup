@@ -60,7 +60,7 @@ sym	*	dlclose	libnewminhh_compat.so	compat_dlclose	COMPAT	i:p	-	0
 sym	*	dlerror	libnewminhh_compat.so	compat_dlerror	COMPAT	p:	-	0
 sym	*	dlopen	libnewminhh_compat.so	compat_dlopen	COMPAT	p:pi	-	0
 sym	*	dlsym	libnewminhh_compat.so	compat_dlsym	COMPAT	p:pp	RUNTIME_ONLY	0
-sym	*	dlsym	libnewminhh_compat.so	compat_dlsym_cdecl	COMPAT	p:pp	CDECL_DIRECT,STATIC_ONLY	0
+sym	*	dlsym	libnewminhh_compat.so	compat_dlsym_cdecl	COMPAT	p:pp	STATIC_ONLY	0
 sym	*	dup	libnewminhh_compat.so	compat_dup	COMPAT	i:i	-	0
 sym	*	dup2	libnewminhh_compat.so	compat_dup2	COMPAT	i:ii	-	0
 sym	*	dup3	libnewminhh_compat.so	compat_dup3	COMPAT	i:iii	-	0
